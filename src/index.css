@@ -1,4 +1,5 @@
-
+import { loadStripe } from '@stripe/stripe-js';
+// use process.env.VITE_STRIPE_PUBLISHABLE_KEY in your Vite app
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;

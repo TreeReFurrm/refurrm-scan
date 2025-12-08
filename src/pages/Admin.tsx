@@ -1,3 +1,5 @@
+import { loadStripe } from '@stripe/stripe-js';
+// use process.env.VITE_STRIPE_PUBLISHABLE_KEY in your Vite app
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import SubmissionFilters from '@/components/admin/SubmissionFilters';

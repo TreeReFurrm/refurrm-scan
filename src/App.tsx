@@ -1,4 +1,5 @@
-
+import { loadStripe } from '@stripe/stripe-js';
+// use process.env.VITE_STRIPE_PUBLISHABLE_KEY in your Vite app
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
