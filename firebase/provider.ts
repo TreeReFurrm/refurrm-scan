@@ -1,0 +1,1 @@
+export { useMemoFirebase } from './index';

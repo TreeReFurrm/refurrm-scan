@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 interface PaymentSuccessProps {
   type: 'donation' | 'subscription';
@@ -10,7 +10,7 @@ interface PaymentSuccessProps {
 }
 
 export function PaymentSuccess({ type, onClose }: PaymentSuccessProps) {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     // Simple confetti effect
@@ -39,13 +39,13 @@ export function PaymentSuccess({ type, onClose }: PaymentSuccessProps) {
         </p>
         <div className="flex gap-3">
           <Button 
-            onClick={() => navigate('/profile')}
+            onClick={() => router.push('/profile')}
             className="flex-1 bg-[#315E47] hover:bg-[#1C2E25]"
           >
             View Profile
           </Button>
           <Button 
-            onClick={onClose || (() => navigate('/'))}
+            onClick={onClose || (() => router.push('/'))}
             variant="outline"
             className="flex-1"
           >

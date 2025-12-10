@@ -12,12 +12,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Building2, TrendingUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 export default function FacilityPortal() {
   const { user } = useAuth();
   const { toast } = useToast();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [facility, setFacility] = useState<any>(null);
   const [submissions, setSubmissions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,11 +35,11 @@ export default function FacilityPortal() {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      router.push('/login');
       return;
     }
     loadFacilityData();
-  }, [user]);
+  }, [user, router]);
 
   const loadFacilityData = async () => {
     try {

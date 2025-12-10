@@ -1,13 +1,53 @@
-import { createClient } from '@supabase/supabase-js';
+type SupabaseUser = {
+  id: string;
+  email?: string;
+  user_metadata?: Record<string, any>;
+};
 
-// Initialize Supabase client using environment variables
-// These are loaded from .env.local during development
-// and from your hosting platform's environment settings in production
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-key';
+type SupabaseSession = { user: SupabaseUser } | null;
 
-// Create a client even with placeholder values to prevent app crashes
-// The app will work in demo mode without real Supabase connection
-const supabase = createClient(supabaseUrl, supabaseKey);
+const mockUser: SupabaseUser = {
+  id: 'local-user',
+  email: 'demo@refurrm.test',
+  user_metadata: { full_name: 'ReFurrm Tester', role: 'family' },
+};
 
-export { supabase };
+function createQueryResult<T>(data: T) {
+  const result: any = {
+    data,
+    error: null,
+    select: () => result,
+    eq: () => result,
+    order: () => result,
+    limit: () => result,
+    single: async () => ({ data: Array.isArray(data) ? (data[0] ?? null) : (data as any), error: null }),
+    insert: async () => ({ data: null, error: null }),
+    update: () => ({
+      eq: async () => ({ data: null, error: null }),
+    }),
+    then: (resolve: any) => resolve({ data, error: null }),
+  };
+  return result;
+}
+
+export const supabase = {
+  auth: {
+    getSession: async (): Promise<{ data: { session: SupabaseSession }; error: null }> => ({
+      data: { session: { user: mockUser } },
+      error: null,
+    }),
+    getUser: async () => ({ data: { user: mockUser }, error: null }),
+    signUp: async () => ({ data: { user: mockUser }, error: null }),
+    signInWithPassword: async () => ({ data: { session: { user: mockUser } }, error: null }),
+    signOut: async () => ({ error: null }),
+    onAuthStateChange: (callback: (event: string, session: SupabaseSession) => void) => {
+      const subscription = { unsubscribe: () => {} };
+      callback('INITIAL', { user: mockUser });
+      return { data: { subscription } };
+    },
+  },
+  functions: {
+    invoke: async () => ({ data: null, error: null }),
+  },
+  from: (_table: string) => createQueryResult<any[]>([]),
+};

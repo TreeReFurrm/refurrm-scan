@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { useAuth } from '@/contexts/AuthContext';
 import Logo from './Logo';
 
 export default function Hero() {
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const scrollToImpact = () => {
     document.getElementById('impact-feed')?.scrollIntoView({ behavior: 'smooth' });
@@ -14,7 +14,7 @@ export default function Hero() {
     if (user) {
       scrollToImpact();
     } else {
-      navigate('/signup');
+      router.push('/signup');
     }
   };
 
@@ -39,7 +39,7 @@ export default function Hero() {
           Restoring Hope in a System Built on Loss
         </p>
         <div className="flex gap-4">
-          <button onClick={() => navigate('/rescue')} className="bg-[#50E3E3] text-[#1C2E25] px-8 py-4 rounded-full font-['Poppins'] font-semibold text-lg hover:scale-105 transition-transform">
+          <button onClick={() => router.push('/rescue')} className="bg-[#50E3E3] text-[#1C2E25] px-8 py-4 rounded-full font-['Poppins'] font-semibold text-lg hover:scale-105 transition-transform">
             Donate Now
           </button>
           <button onClick={handleGetStarted} className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full font-['Poppins'] font-semibold text-lg hover:scale-105 transition-transform">
@@ -51,4 +51,3 @@ export default function Hero() {
     </div>
   );
 }
-

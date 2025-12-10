@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
 
 interface UserProfile {
@@ -12,10 +11,13 @@ interface UserProfile {
   avatar_url?: string;
 }
 
+type User = { id: string; email?: string; user_metadata?: Record<string, any> } | null;
+type Session = { user: NonNullable<User> } | null;
+
 interface AuthContextType {
-  user: User | null;
+  user: User;
   profile: UserProfile | null;
-  session: Session | null;
+  session: Session;
   loading: boolean;
   signUp: (email: string, password: string, fullName: string, role: string) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
@@ -26,7 +28,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);

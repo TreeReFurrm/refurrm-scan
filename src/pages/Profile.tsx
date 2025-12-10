@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 import { Crown, Zap, Users, Heart, Calendar, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { PaymentSuccess } from '@/components/PaymentSuccess';
-import { useSearchParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import {
   AlertDialog,
@@ -41,7 +41,7 @@ interface Donation {
 
 export default function Profile() {
   const { profile, updateProfile } = useAuth();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const router = useRouter();
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
@@ -53,26 +53,28 @@ export default function Profile() {
   const { toast } = useToast();
 
   useEffect(() => {
-    const upgrade = searchParams.get('upgrade');
-    const donation = searchParams.get('donation');
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const upgrade = params.get('upgrade');
+    const donation = params.get('donation');
     
     if (upgrade === 'success') {
       setSuccessType('subscription');
       setShowSuccess(true);
-      setSearchParams({});
+      router.replace(router.pathname, undefined, { shallow: true });
     } else if (donation === 'success') {
       setSuccessType('donation');
       setShowSuccess(true);
-      setSearchParams({});
+      router.replace(router.pathname, undefined, { shallow: true });
     } else if (upgrade === 'canceled' || donation === 'canceled') {
       toast({
         title: 'Payment Canceled',
         description: 'Your payment was canceled. No charges were made.',
         variant: 'destructive'
       });
-      setSearchParams({});
+      router.replace(router.pathname, undefined, { shallow: true });
     }
-  }, [searchParams, setSearchParams, toast]);
+  }, [router, toast]);
 
 
   useEffect(() => {
@@ -156,7 +158,7 @@ export default function Profile() {
       case 'admin': return <Badge className="bg-red-600"><Crown className="w-3 h-3 mr-1" />Admin</Badge>;
       case 'buyer': return <Badge className="bg-blue-600"><Zap className="w-3 h-3 mr-1" />Buyer</Badge>;
       case 'volunteer': return <Badge className="bg-green-600"><Users className="w-3 h-3 mr-1" />Volunteer</Badge>;
-      case 'family': return <Badge className="bg-purple-600"><Users className="w-3 h-3 mr-1" />Family</Badge>;
+      case 'family': return <Badge className="bg-primary-600"><Users className="w-3 h-3 mr-1" />Family</Badge>;
       default: return <Badge>{role}</Badge>;
     }
   };
@@ -249,7 +251,7 @@ export default function Profile() {
               <CardContent>
                 <div className="space-y-4">
                   {activeSubscriptions.map((subscription) => (
-                    <div key={subscription.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+                    <div key={subscription.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-primary-50 rounded-lg border border-blue-200">
                       <div>
                         <p className="font-bold text-lg text-[#315E47]">
                           ${Number(subscription.amount).toFixed(2)} / {subscription.frequency === 'monthly' ? 'month' : 'year'}

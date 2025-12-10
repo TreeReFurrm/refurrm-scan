@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neutrals (ReFurrm dark base) */
+    --background: 0 0% 16%;        /* Deep Charcoal */
+    --foreground: 0 0% 90%;        /* Mist Gray */
+
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 90%;
+
+    /* Brand colors */
+    --primary: 186 100% 33%;       /* Teal Core (#0097A7) */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;         /* Slightly lighter charcoal */
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 186 67% 67%;         /* Aqua Light (#74D7E3) */
+    --accent-foreground: 0 0% 16%;
+
+    --destructive: 0 69% 50%;      /* Rescue Red (#D62828) */
+    --destructive-foreground: 0 0% 98%;
+
+    /* Inputs / borders / ring */
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 186 100% 33%;
+
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Charts using brand colors */
+    --chart-1: 186 100% 33%;       /* Teal Core */
+    --chart-2: 186 67% 67%;        /* Aqua Light */
+    --chart-3: 79 87% 68%;         /* Good Human Lime */
+    --chart-4: 120 2% 78%;         /* Polished Silver */
+    --chart-5: 0 69% 50%;          /* Rescue Red */
+
+    /* Sidebar tokens mapped to same palette */
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 186 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 24%;
+    --sidebar-ring: 186 100% 33%;
+  }
+
+  .dark {
+    /* Same for now; later you can invert these if you want a light default theme */
+    --background: 0 0% 16%;
+    --foreground: 0 0% 90%;
+
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 186 100% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 186 67% 67%;
+    --accent-foreground: 0 0% 16%;
+
+    --destructive: 0 69% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 186 100% 33%;
+
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 186 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 24%;
+    --sidebar-ring: 186 100% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,7 +18,7 @@ export default function Signup() {
   const [role, setRole] = useState('family');
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,7 +27,7 @@ export default function Signup() {
     try {
       await signUp(email, password, fullName, role);
       toast({ title: 'Success!', description: 'Please check your email to verify your account.' });
-      navigate('/login');
+      router.push('/login');
     } catch (error: any) {
       toast({ title: 'Error', description: error.message, variant: 'destructive' });
     } finally {
@@ -76,7 +77,7 @@ export default function Signup() {
           </form>
           <div className="mt-4 text-center text-sm">
             Already have an account?{' '}
-            <Link to="/login" className="text-emerald-600 hover:underline">Sign in</Link>
+            <Link href="/login" className="text-emerald-600 hover:underline">Sign in</Link>
           </div>
         </CardContent>
       </Card>

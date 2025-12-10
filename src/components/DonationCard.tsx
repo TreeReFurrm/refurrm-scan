@@ -60,7 +60,7 @@ export function DonationCard({ rescueId, title = "Support Rescue Missions", desc
   };
 
   return (
-    <Card className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200">
+    <Card className="p-6 bg-gradient-to-br from-blue-50 to-bg-primary-500 border-2 border-blue-200">
       <div className="flex items-center gap-2 mb-4">
         <Heart className="w-6 h-6 text-red-500 fill-red-500" />
         <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
@@ -99,7 +99,7 @@ export function DonationCard({ rescueId, title = "Support Rescue Missions", desc
       <Button 
         onClick={handleDonate} 
         disabled={loading || (!amount && !customAmount)}
-        className="w-full h-14 text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+        className="w-full h-14 text-lg font-bold bg-gradient-to-r from-blue-600 to-bg-primary-500 hover:from-blue-700 hover:to-primary-700"
       >
         {loading ? 'Processing...' : frequency === 'one-time' ? 'Donate Now' : 'Start Recurring Donation'}
       </Button>

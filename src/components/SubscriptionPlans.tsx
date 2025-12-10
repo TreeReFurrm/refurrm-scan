@@ -4,7 +4,7 @@ import { Badge } from './ui/badge';
 import { Check, Users, Zap, Crown } from 'lucide-react';
 import { useAppContext } from '@/contexts/AppContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
 
@@ -47,12 +47,12 @@ const plans = [
 const SubscriptionPlans = () => {
   const { currentUser, setCurrentUser } = useAppContext();
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const handleSubscribe = async (tier: string) => {
     if (!user) {
-      navigate('/signup');
+      router.push('/signup');
       return;
     }
 

@@ -17,7 +17,7 @@ export default function Analytics() {
           alt="Analytics Dashboard"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-bg-primary-500" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="mb-4 text-5xl font-bold">Rescue Analytics</h1>

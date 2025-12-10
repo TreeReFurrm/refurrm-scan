@@ -156,7 +156,7 @@ export default function Profile() {
       case 'admin': return <Badge className="bg-red-600"><Crown className="w-3 h-3 mr-1" />Admin</Badge>;
       case 'buyer': return <Badge className="bg-blue-600"><Zap className="w-3 h-3 mr-1" />Buyer</Badge>;
       case 'volunteer': return <Badge className="bg-green-600"><Users className="w-3 h-3 mr-1" />Volunteer</Badge>;
-      case 'family': return <Badge className="bg-purple-600"><Users className="w-3 h-3 mr-1" />Family</Badge>;
+      case 'family': return <Badge className="bg-primary-500"><Users className="w-3 h-3 mr-1" />Family</Badge>;
       default: return <Badge>{role}</Badge>;
     }
   };
@@ -249,7 +249,7 @@ export default function Profile() {
               <CardContent>
                 <div className="space-y-4">
                   {activeSubscriptions.map((subscription) => (
-                    <div key={subscription.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+                    <div key={subscription.id} className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-primary-500 rounded-lg border border-blue-200">
                       <div>
                         <p className="font-bold text-lg text-[#315E47]">
                           ${Number(subscription.amount).toFixed(2)} / {subscription.frequency === 'monthly' ? 'month' : 'year'}
