@@ -1,0 +1,12 @@
+__turbopack_load_page_chunks__("/Scanner", [
+  "static/chunks/c77ef6fdc2f29e79.js",
+  "static/chunks/ae60db2fc2906295.js",
+  "static/chunks/f198dcdca8ad70d1.js",
+  "static/chunks/fe147a799ad64c38.js",
+  "static/chunks/31e9d6efe14240b2.js",
+  "static/chunks/880b041d0ceb277c.js",
+  "static/chunks/ca42df511f758b1d.js",
+  "static/chunks/2a1d45f6f4ec0d6f.js",
+  "static/chunks/4277a85804169460.js",
+  "static/chunks/turbopack-c4f2d82e62782fc1.js"
+])
