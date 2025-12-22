@@ -1,0 +1,6 @@
+__turbopack_load_page_chunks__("/Rescue", [
+  "static/chunks/66bcad8a6c12f753.js",
+  "static/chunks/da2d39d326591993.js",
+  "static/chunks/4aef338b256c17e2.js",
+  "static/chunks/turbopack-c0e5b2608a886956.js"
+])

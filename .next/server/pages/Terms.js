@@ -1,8 +1,8 @@
 var R=require("../chunks/ssr/[turbopack]_runtime.js")("server/pages/Terms.js")
-R.c("server/chunks/ssr/Sites_refurrm-scan_c42e097d._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__c8d12c9d._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__82e7a549._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__ce7ef205._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__d6febccf._.js")
-R.m(77773)
-module.exports=R.m(77773).exports
+R.c("server/chunks/ssr/6d89c_next_dist_esm_build_templates_pages_644e4f6c.js")
+R.c("server/chunks/ssr/[root-of-the-server]__c53d170d._.js")
+R.c("server/chunks/ssr/[externals]_react_jsx-runtime_7ad7b9a3._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__02ad3b70._.js")
+R.c("server/chunks/ssr/Sites_refurrm-scan_src_pages__app_tsx_37d60386._.js")
+R.m(7773)
+module.exports=R.m(7773).exports

@@ -1,0 +1,6 @@
+__turbopack_load_page_chunks__("/MobileCamper", [
+  "static/chunks/7721e07df7f67375.js",
+  "static/chunks/da2d39d326591993.js",
+  "static/chunks/4aef338b256c17e2.js",
+  "static/chunks/turbopack-e967bad819c7bde9.js"
+])

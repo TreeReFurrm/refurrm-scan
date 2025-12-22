@@ -6,16 +6,10 @@
   "rootMainFiles": [],
   "pages": {
     "/Stories": [
-      "static/chunks/68b6366c4c41c837.js",
-      "static/chunks/ae60db2fc2906295.js",
-      "static/chunks/4277a85804169460.js",
-      "static/chunks/fe147a799ad64c38.js",
-      "static/chunks/880b041d0ceb277c.js",
-      "static/chunks/103d5eba88099a12.js",
-      "static/chunks/ca42df511f758b1d.js",
-      "static/chunks/31e9d6efe14240b2.js",
-      "static/chunks/91b86a5a0739af12.js",
-      "static/chunks/turbopack-28d72895f2699894.js"
+      "static/chunks/de4eb478beab2caf.js",
+      "static/chunks/da2d39d326591993.js",
+      "static/chunks/4aef338b256c17e2.js",
+      "static/chunks/turbopack-16dc996e17184da3.js"
     ]
   },
   "ampFirstPages": []

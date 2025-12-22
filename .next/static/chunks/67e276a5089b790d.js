@@ -1,0 +1,6 @@
+__turbopack_load_page_chunks__("/ImpactDashboard", [
+  "static/chunks/27b368856464e6f0.js",
+  "static/chunks/da2d39d326591993.js",
+  "static/chunks/4aef338b256c17e2.js",
+  "static/chunks/turbopack-187ff428b28c7880.js"
+])

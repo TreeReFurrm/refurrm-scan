@@ -6,13 +6,10 @@
   "rootMainFiles": [],
   "pages": {
     "/Analytics": [
-      "static/chunks/b473ec3c317c38b3.js",
-      "static/chunks/31e9d6efe14240b2.js",
-      "static/chunks/4277a85804169460.js",
-      "static/chunks/aaa124b22cc51c56.js",
-      "static/chunks/880b041d0ceb277c.js",
-      "static/chunks/dd9135bf214faacf.js",
-      "static/chunks/turbopack-428873d6f7ecfb86.js"
+      "static/chunks/d310257d8c342301.js",
+      "static/chunks/da2d39d326591993.js",
+      "static/chunks/4aef338b256c17e2.js",
+      "static/chunks/turbopack-c391656fbf00d31b.js"
     ]
   },
   "ampFirstPages": []
