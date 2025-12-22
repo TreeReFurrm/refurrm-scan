@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { AppProvider } from '@/contexts/AppContext';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import '@/index.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -16,6 +17,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
             <Toaster />
             <Sonner />
+            <SpeedInsights />
           </TooltipProvider>
         </AuthProvider>
       </AppProvider>
